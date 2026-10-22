@@ -1,0 +1,759 @@
+<title>W Invitation Design</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#09050c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Readex+Pro:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: a dark velvet "invitation suite" site. Pale watercolor invitations glow against wine and emerald ink; arch frames (the shape used in his designs) recur as image masks. */
+:root{
+  --ink:#09050c;
+  --wine:#2a0a1d;
+  --wine2:#431030;
+  --emerald:#04251f;
+  --emerald2:#0b3d33;
+  --gold:#e8c07c;
+  --gold-deep:#b88a47;
+  --rose:#f3a9bc;
+  --cream:#f7efe3;
+  --mute:#b9a9b4;
+  --line:rgba(232,192,124,.22);
+  --glass:rgba(255,245,235,.05);
+  --f-ar-display:"Aref Ruqaa","Readex Pro",serif;
+  --f-ar-body:"Readex Pro","Segoe UI",Tahoma,sans-serif;
+  --f-en-display:"Cormorant Garamond","Times New Roman",serif;
+  --f-en-body:"Manrope","Segoe UI",Arial,sans-serif;
+  --display:var(--f-ar-display);
+  --body:var(--f-ar-body);
+  color-scheme:dark;
+}
+html[lang="en"]{--display:var(--f-en-display);--body:var(--f-en-body)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  background:var(--ink);color:var(--cream);font-family:var(--body);
+  font-size:16px;line-height:1.75;margin:0;overflow-x:hidden;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+body::after{ /* grain */
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.25;margin:0;text-wrap:balance}
+html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] h3{font-weight:600}
+p{margin:0}
+.gold{background:linear-gradient(100deg,#f6dba5,#e8c07c 40%,#c9974f 70%,#f3d79c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-family:var(--f-en-body);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+html[lang="ar"] .eyebrow{letter-spacing:.06em;font-family:var(--f-ar-body);font-size:.85rem}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(9,5,12,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--f-en-display);font-size:1.3rem;font-weight:600;letter-spacing:.02em;direction:ltr}
+.brand b{display:grid;place-items:center;width:38px;height:38px;border-radius:50% 50% 8px 8px;border:1px solid var(--gold);font-size:1.4rem;font-style:italic;color:var(--gold)}
+.brand span em{font-style:normal;color:var(--gold)}
+nav.links{display:flex;gap:1.6rem;font-size:.92rem;color:var(--mute)}
+nav.links a{padding:.3rem 0;border-bottom:1px solid transparent;transition:.25s}
+nav.links a:hover{color:var(--gold);border-color:var(--gold)}
+.nav-tools{display:flex;align-items:center;gap:.6rem}
+.lang{border:1px solid var(--line);background:transparent;border-radius:99px;padding:.35rem .9rem;font-size:.82rem;font-family:var(--f-en-body);letter-spacing:.08em}
+.lang:hover{border-color:var(--gold);color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:99px;padding:.8rem 1.5rem;font-weight:500;border:1px solid transparent;transition:transform .25s,box-shadow .25s,background .25s;font-size:.98rem;line-height:1.3;text-align:center}
+.btn-gold{background:linear-gradient(120deg,#f2d598,#d9a959 55%,#b88a47);color:#25140a;box-shadow:0 10px 30px -10px rgba(232,192,124,.55)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(232,192,124,.7)}
+.btn-ghost{border-color:var(--line);background:var(--glass)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn svg{width:18px;height:18px;flex:none}
+.menu-btn{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;place-items:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:16px;height:1.5px;background:var(--cream);position:relative;content:""}
+.menu-btn span::before{position:absolute;top:-5px}.menu-btn span::after{position:absolute;top:5px}
+@media(max-width:900px){
+  nav.links{position:absolute;inset-inline:0;top:100%;flex-direction:column;gap:0;background:rgba(9,5,12,.97);padding:.5rem max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);display:none}
+  nav.links.open{display:flex}
+  nav.links a{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:1rem}
+  .menu-btn{display:grid}
+  .nav-cta{display:none}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:clamp(40px,7vw,90px) clamp(48px,7vw,96px);
+  background:radial-gradient(900px 520px at 85% 10%,var(--wine2),transparent 70%),radial-gradient(700px 500px at 5% 90%,var(--emerald2),transparent 70%),var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,70px);align-items:center}
+.hero h1{font-size:clamp(2.5rem,6.2vw,5rem);margin:1.2rem 0 1.3rem}
+html[lang="en"] .hero h1{font-size:clamp(2.8rem,6.6vw,5.6rem);line-height:1.02}
+.hero p.lead{color:var(--mute);font-size:1.08rem;max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero-facts{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.fact b{display:block;font-family:var(--f-en-display);font-size:2.3rem;line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.fact span{font-size:.85rem;color:var(--mute)}
+.stage{position:relative;height:clamp(420px,52vw,600px);perspective:1200px;min-width:0}
+.card3d{position:absolute;border-radius:14px;overflow:hidden;box-shadow:0 40px 70px -20px rgba(0,0,0,.7),0 0 0 1px rgba(232,192,124,.35);background:#fff;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card3d img{width:100%;height:100%;object-fit:cover}
+.c1{width:44%;aspect-ratio:9/16;inset-inline-start:2%;top:9%;transform:rotate(-7deg) translateZ(0);animation:float 7s ease-in-out infinite}
+.c2{width:50%;aspect-ratio:3/4.2;inset-inline-start:25%;top:0;z-index:2;animation:float 8s ease-in-out -2s infinite}
+.c3{width:44%;aspect-ratio:3/4.2;inset-inline-end:0;bottom:2%;transform:rotate(6deg);z-index:3;animation:float 9s ease-in-out -4s infinite}
+@keyframes float{50%{translate:0 -14px}}
+.badge-logo{position:absolute;z-index:4;inset-inline-start:0;bottom:0;width:clamp(96px,14vw,138px);border-radius:50%;border:2px solid var(--gold);box-shadow:0 20px 40px -10px rgba(0,0,0,.7)}
+.badge-logo img{border-radius:50%;aspect-ratio:1;object-fit:cover}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.stage{height:440px;max-width:520px;width:100%;margin-inline:auto}}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:linear-gradient(90deg,var(--wine),var(--emerald));overflow:hidden;direction:ltr}
+.mq{display:flex;gap:3rem;width:max-content;padding:1rem 0;animation:mq 40s linear infinite;font-family:var(--f-en-display);font-style:italic;font-size:1.5rem;color:var(--gold);white-space:nowrap}
+.mq i{font-style:normal;color:var(--rose)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding-block:clamp(56px,8vw,110px)}
+.sec-head{display:grid;gap:1rem;margin-bottom:clamp(28px,4vw,52px);max-width:44rem}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+.sec-head p{color:var(--mute)}
+
+/* services */
+#services{background:linear-gradient(180deg,var(--ink),var(--emerald) 120%)}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:1.2rem}
+.svc article{position:relative;padding:2rem 1.6rem 1.8rem;border:1px solid var(--line);border-radius:140px 140px 18px 18px;background:var(--glass);display:grid;gap:.7rem;justify-items:center;text-align:center;transition:.35s;min-width:0}
+.svc article:hover{border-color:var(--gold);transform:translateY(-6px);background:rgba(232,192,124,.08)}
+.svc svg{width:44px;height:44px;stroke:var(--gold);fill:none;stroke-width:1.2;margin-top:1.4rem}
+.svc h3{font-size:1.45rem}
+.svc p{color:var(--mute);font-size:.94rem}
+
+/* gallery */
+#gallery{background:var(--ink)}
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.chip{border:1px solid var(--line);background:transparent;border-radius:99px;padding:.5rem 1.1rem;font-size:.9rem;color:var(--mute);transition:.25s}
+.chip:hover{color:var(--gold);border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);color:#25140a;border-color:var(--gold);font-weight:600}
+.chip small{opacity:.7;margin-inline-start:.35rem;font-family:var(--f-en-body);font-variant-numeric:tabular-nums}
+.grid{columns:4 220px;column-gap:1rem}
+@media(max-width:600px){.grid{columns:2;column-gap:.6rem}.tile{margin-bottom:.6rem}}
+.tile{break-inside:avoid;margin:0 0 1rem;position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in;display:block;width:100%;padding:0;transition:.35s}
+.tile img{width:100%;height:auto;transition:transform .6s}
+.tile:hover{border-color:var(--gold);box-shadow:0 20px 40px -18px rgba(232,192,124,.5);transform:translateY(-3px)}
+.tile:hover img{transform:scale(1.04)}
+.tile .no{position:absolute;inset-block-end:.6rem;inset-inline-start:.6rem;background:rgba(9,5,12,.78);color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:.1rem .7rem;font-family:var(--f-en-body);font-size:.75rem;letter-spacing:.1em}
+.gal-note{margin-top:1.4rem;color:var(--mute);font-size:.9rem}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(6,3,9,.94);display:grid;grid-template-rows:1fr auto;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));gap:1rem}
+.lb[hidden]{display:none!important}
+.lb-img{min-height:0;display:grid;place-items:center}
+.lb-img img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.8);border:1px solid var(--line);background:#fff}
+.lb-bar{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;justify-content:center}
+.lb-bar .meta{color:var(--mute);font-size:.9rem;margin-inline-end:.8rem}
+.lb-x,.lb-nav{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(9,5,12,.8);display:grid;place-items:center;font-size:1.4rem;line-height:1;z-index:2}
+.lb-x{top:max(14px,env(safe-area-inset-top,0px));inset-inline-end:max(14px,env(safe-area-inset-right,0px))}
+.lb-nav{top:50%;translate:0 -50%}
+.lb-prev{inset-inline-start:max(10px,env(safe-area-inset-left,0px))}
+.lb-next{inset-inline-end:max(10px,env(safe-area-inset-right,0px))}
+.lb-x:hover,.lb-nav:hover{border-color:var(--gold);color:var(--gold)}
+
+/* about */
+#about{background:radial-gradient(800px 500px at 15% 30%,var(--wine),transparent 70%),var(--ink)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:center}
+.portrait{position:relative;max-width:420px;width:100%;margin-inline:auto}
+.portrait .arch{border-radius:999px 999px 18px 18px;overflow:hidden;border:1px solid var(--gold);padding:10px;background:linear-gradient(160deg,rgba(232,192,124,.25),transparent)}
+.portrait .arch img{border-radius:999px 999px 10px 10px;width:100%;aspect-ratio:3/4.4;object-fit:cover;object-position:top}
+.portrait .logo{position:absolute;inset-inline-end:-14px;bottom:24px;width:34%;border-radius:14px;border:1px solid var(--gold);box-shadow:0 20px 40px -10px #000}
+.portrait .logo img{border-radius:13px}
+.about h2{font-size:clamp(2rem,4.2vw,3.2rem);margin:1rem 0 1.2rem}
+.about p{color:var(--mute);max-width:36em;margin-bottom:1rem}
+.points{display:grid;gap:.7rem;margin:1.5rem 0 2rem;padding:0;list-style:none}
+.points li{display:flex;gap:.8rem;align-items:flex-start}
+.points li::before{content:"";flex:none;width:9px;height:9px;margin-top:.7em;rotate:45deg;background:var(--gold)}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+
+/* price */
+#price{background:radial-gradient(700px 400px at 20% 50%,var(--wine2),transparent 70%),var(--ink)}
+.price{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:center}
+.p-card{border:1px solid var(--gold);border-radius:999px 999px 24px 24px;padding:3rem 2rem 2rem;background:linear-gradient(170deg,rgba(232,192,124,.16),rgba(255,255,255,.02));text-align:center;display:grid;gap:.4rem;justify-items:center;min-width:0}
+.p-card .eyebrow::before{display:none}
+.amount{display:flex;align-items:baseline;gap:.6rem;direction:ltr}
+.amount b{font-family:var(--f-en-display);font-size:clamp(4.5rem,10vw,7rem);line-height:1;font-weight:600;background:linear-gradient(100deg,#f6dba5,#e8c07c 50%,#c9974f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.amount span{font-size:1.4rem;color:var(--gold)}
+.per{color:var(--mute)}
+.p-card .points{text-align:start;margin:1rem 0 0}
+.p-pay h2{font-size:clamp(1.8rem,3.6vw,2.8rem);margin-bottom:1rem}
+.p-pay>p{color:var(--mute);margin-bottom:1.4rem;max-width:36em}
+.pay-box{border:1px solid var(--line);border-radius:16px;background:var(--glass);margin-bottom:1.4rem;overflow:hidden}
+.pay-row{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;flex-wrap:wrap}
+.pay-row+.pay-row{border-top:1px solid var(--line)}
+.pay-row span{color:var(--mute)}
+.pay-row b{font-weight:500;color:var(--gold)}
+@media(max-width:860px){.price{grid-template-columns:1fr}}
+
+/* process */
+#process{background:linear-gradient(180deg,var(--ink),var(--wine) 130%)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:1.4rem;counter-reset:s}
+.step{position:relative;padding:1.6rem 0 0;border-top:1px solid var(--gold);min-width:0}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--f-en-display);font-size:4.2rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold);display:block;margin-bottom:.6rem}
+.step h3{font-size:1.4rem;margin-bottom:.4rem}
+.step p{color:var(--mute);font-size:.94rem}
+
+/* order */
+#order{background:radial-gradient(900px 600px at 90% 0%,var(--emerald2),transparent 70%),radial-gradient(700px 500px at 0% 100%,var(--wine2),transparent 70%),var(--ink)}
+.order{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,64px);align-items:start}
+.order h2{font-size:clamp(2rem,4.2vw,3.2rem);margin:1rem 0}
+.order .side p{color:var(--mute);margin-bottom:1.5rem}
+.wa-box{border:1px solid var(--line);border-radius:18px;padding:1.3rem;background:var(--glass);display:grid;gap:.8rem}
+.wa-box .num{font-family:var(--f-en-body);font-size:1.5rem;letter-spacing:.06em;direction:ltr;text-align:start;font-variant-numeric:tabular-nums}
+.wa-box .row{display:flex;flex-wrap:wrap;gap:.6rem}
+form.f{border:1px solid var(--line);border-radius:24px;padding:clamp(1.2rem,3vw,2.2rem);background:rgba(255,245,235,.045);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.1rem;min-width:0}
+.fld{display:grid;gap:.4rem;min-width:0}
+.fld.full{grid-column:1/-1}
+.fld label{font-size:.85rem;color:var(--gold)}
+.fld input,.fld select,.fld textarea{width:100%;background:rgba(9,5,12,.65);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;color:var(--cream);font:inherit;font-size:.98rem;transition:.2s}
+.fld textarea{min-height:96px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(232,192,124,.18)}
+.fld input::placeholder,.fld textarea::placeholder{color:#7d6c78}
+.submit{grid-column:1/-1;display:grid;gap:.7rem}
+.submit .btn{width:100%;padding:1rem}
+.hint{font-size:.85rem;color:var(--rose);min-height:1.2em}
+.sendnote{font-size:.82rem;color:var(--mute)}
+@media(max-width:860px){.order{grid-template-columns:1fr}form.f{grid-template-columns:1fr}}
+
+.chk{grid-column:1/-1;display:flex;gap:.8rem;align-items:flex-start;padding:.9rem 1rem;border:1px solid var(--line);border-radius:12px;background:rgba(232,192,124,.06);cursor:pointer;font-size:.94rem}
+.chk input{width:20px;height:20px;margin-top:.25rem;flex:none;accent-color:#e8c07c}
+.pay-row{flex-wrap:wrap;gap:.6rem}
+/* faq */
+#faq{background:var(--ink)}
+.faq{max-width:52rem;display:grid;gap:.8rem}
+details{border:1px solid var(--line);border-radius:16px;background:var(--glass);padding:0 1.3rem;transition:.25s}
+details[open]{border-color:var(--gold);background:rgba(232,192,124,.06)}
+summary{cursor:pointer;list-style:none;padding:1.1rem 0;display:flex;justify-content:space-between;gap:1rem;align-items:center;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.5rem;color:var(--gold);transition:.25s;flex:none}
+details[open] summary::after{rotate:45deg}
+details p{color:var(--mute);padding-bottom:1.2rem}
+
+/* footer */
+footer{background:linear-gradient(180deg,var(--ink),var(--wine));border-top:1px solid var(--line);padding-block:3rem 5.5rem}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
+.foot .logo-card{width:120px;border-radius:14px;border:1px solid var(--gold);margin-bottom:1rem}
+.foot .logo-card img{border-radius:13px}
+.foot h4{font-family:var(--display);font-size:1.2rem;margin:0 0 .8rem;color:var(--gold)}
+.foot p,.foot a{color:var(--mute);font-size:.94rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.foot a:hover{color:var(--gold)}
+.copy{margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--mute);font-size:.84rem;display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:760px){.foot{grid-template-columns:1fr}}
+
+/* floating whatsapp */
+.fab{position:fixed;z-index:55;inset-inline-end:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:.6rem;background:#1fa855;color:#fff;border-radius:99px;padding:.8rem 1.2rem;box-shadow:0 14px 34px -8px rgba(31,168,85,.7);font-weight:500}
+.fab svg{width:24px;height:24px}
+.fab:hover{transform:translateY(-2px)}
+@media(max-width:520px){.fab span{display:none}.fab{padding:.9rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* content protection (deterrents) */
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.tile img,.lb-img img,.card3d img,.portrait img,.badge-logo img,.logo img,.logo-card img{pointer-events:none}
+body{-webkit-touch-callout:none}
+body:not(.allow-select) *:not(input):not(textarea){-webkit-user-select:none;user-select:none}
+input,textarea{-webkit-user-select:text;user-select:text}
+.num,.pay-row b{-webkit-user-select:text!important;user-select:text!important}
+body.shield #grid,body.shield .lb-img,body.shield .stage{filter:blur(28px)}
+@media print{html,body{display:none!important}}
+</style>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="W_invitation_design"><b>W</b><span>invitation<em>_</em>design</span></a>
+    <nav class="links" id="links">
+      <a href="#services" data-t="n_services">خدماتي</a>
+      <a href="#gallery" data-t="n_gallery">معرض التصاميم</a>
+      <a href="#about" data-t="n_about">عني</a>
+      <a href="#price" data-t="n_price">السعر</a>
+      <a href="#process" data-t="n_process">إزاي بنشتغل</a>
+      <a href="#order" data-t="n_order">اطلب دعوتك</a>
+      <a href="#faq" data-t="n_faq">أسئلة شائعة</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="lang" id="installBtn" type="button" hidden data-t="install">ثبّت التطبيق</button>
+      <button class="lang" id="langBtn" type="button" aria-label="Language">EN</button>
+      <a class="btn btn-gold nav-cta" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="n_cta">كلمني واتساب</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.2 15.03l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.2 3.9c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5s1.07 2.9 1.22 3.1c.15.2 2.07 3.3 5.1 4.5 2.5 1 3.03.8 3.57.75.55-.05 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57Z"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M16.6 2h-3.1v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .8.1V9.2a6 6 0 1 0 5.2 5.9V8.4a7.4 7.4 0 0 0 4.3 1.4V6.7A4.3 4.3 0 0 1 16.6 2Z"/></symbol>
+  </defs>
+</svg>
+
+<main id="top">
+  <section class="hero" style="padding-block-start:clamp(40px,7vw,90px)">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-t="h_eyebrow">دعوات زفاف وخطوبة</span>
+        <h1><span data-t="h_title1">كل فرحة بتبدأ</span> <span class="gold" data-t="h_title2">بدعوة تستاهلها</span></h1>
+        <p class="lead" data-t="h_lead">أصمم دعوات الزفاف والخطوبة بلمسة فنية على اسمكم وذوقكم، بخط عربي أنيق وورود وتفاصيل دهبية، وتوصلك جاهزة تتبعت لأحبابك.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#gallery" data-t="h_btn1">شوف التصاميم</a>
+          <a class="btn btn-ghost" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="h_btn2">اطلب على واتساب</span></a>
+        </div>
+        <div class="hero-facts">
+          <div class="fact"><b>5+</b><span data-t="f1">سنين خبرة في التصميم</span></div>
+          <div class="fact"><b id="countDesigns">58</b><span data-t="f2">تصميم في المعرض</span></div>
+          <div class="fact"><b>100 <small style="font-size:1rem">ج</small></b><span data-t="f4">سعر الدعوة الواحدة</span></div>
+          <div class="fact"><b>AR · EN</b><span data-t="f3">دعوات بالعربي والإنجليزي</span></div>
+        </div>
+      </div>
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="card3d c1"><img src="assets/d03.jpg" alt=""></div>
+        <div class="card3d c2"><img src="assets/d04.jpg" alt=""></div>
+        <div class="card3d c3"><img src="assets/d45.jpg" alt=""></div>
+        <div class="badge-logo"><img src="assets/logo.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="mq" id="mq"></div></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-t="s_eyebrow">خدماتي</span>
+        <h2 data-t="s_title">تصميم بيتفصّل على حكايتكم</h2>
+        <p data-t="s_lead">من أول Save the Date لحد دعوة الفرح، كل تفصيلة بتتكتب بإيدي على اسمكم ومناسبتكم.</p>
+      </div>
+      <div class="svc">
+        <article><svg viewBox="0 0 48 48"><path d="M8 18l16 12 16-12M8 18v20h32V18M8 18l16-10 16 10"/></svg><h3 data-t="sv1">دعوات الزفاف</h3><p data-t="sv1p">دعوات بخط عربي أو إنجليزي، بين الكلاسيك الدهبي والمودرن والورود.</p></article>
+        <article><svg viewBox="0 0 48 48"><circle cx="19" cy="28" r="10"/><circle cx="29" cy="28" r="10"/><path d="M24 8l3 4h-6z"/></svg><h3 data-t="sv2">دعوات الخطوبة</h3><p data-t="sv2p">تصاميم رقيقة بتعبّر عن فرحة البداية، بالأسماء والتاريخ والمكان.</p></article>
+        <article><svg viewBox="0 0 48 48"><rect x="9" y="10" width="30" height="30" rx="3"/><path d="M9 20h30M17 6v8M31 6v8"/></svg><h3 data-t="sv3">Save the Date</h3><p data-t="sv3p">بطاقة بتحجز الميعاد في قلوب المعازيم قبل الدعوة الرسمية.</p></article>
+        <article><svg viewBox="0 0 48 48"><path d="M10 38l4-12L34 6l8 8-20 20zM14 26l8 8"/></svg><h3 data-t="sv4">تصميم من الصفر</h3><p data-t="sv4p">عندك فكرة أو ألوان معينة؟ احكيلي وأنا أحوّلها لدعوة تشبهكم.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-t="g_eyebrow">معرض التصاميم</span>
+        <h2 data-t="g_title">من شغلي</h2>
+        <p data-t="g_lead">دي تصاميم من أعمالي. اضغط على أي تصميم تكبّره، وبعدها اطلبه بنفس الرقم على واتساب.</p>
+      </div>
+      <div class="filters" id="filters" role="group"></div>
+      <div class="grid" id="grid"></div>
+      <p class="gal-note" data-t="g_note">الأسماء والتواريخ في النماذج فاضية، وبتتكتب على بيانات عروستك وعريسك.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="portrait">
+        <div class="arch"><img src="assets/essam.jpg" alt="Mohamed Essam" loading="lazy"></div>
+        <div class="logo"><img src="assets/logo.jpg" alt="W_invitation_design" loading="lazy"></div>
+      </div>
+      <div>
+        <span class="eyebrow" data-t="a_eyebrow">عني</span>
+        <h2 data-t="a_title">أنا محمد عصام</h2>
+        <p data-t="a_p1">مصمم جرافيك بخبرة أكتر من 5 سنين، وتخصصي في دعوات الزفاف والخطوبة. بحب أحوّل التفاصيل الصغيرة، زي اسم، أو لون، أو ورده، لدعوة الناس تحتفظ بيها.</p>
+        <p data-t="a_p2">كل دعوة بتتصمم على ذوق أصحاب الفرح، مش على قالب جاهز بيتكرر.</p>
+        <ul class="points">
+          <li data-t="a_l1">خط عربي وإنجليزي مختار بعناية لكل دعوة</li>
+          <li data-t="a_l2">ألوان وزخارف على ذوقكم وعلى طابع الفرح</li>
+          <li data-t="a_l3">كلام مباشر معايا على واتساب من أول فكرة لحد التسليم</li>
+        </ul>
+        <div class="hero-cta" style="margin:0">
+          <a class="btn btn-gold" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="a_btn">كلمني دلوقتي</span></a>
+          <a class="btn btn-ghost" href="https://www.tiktok.com/@w_invitation_design" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-tt"/></svg><span data-t="a_tt">تابعني على تيك توك</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price">
+    <div class="wrap price">
+      <div class="p-card">
+        <span class="eyebrow" data-t="pr_eyebrow">السعر</span>
+        <div class="amount"><b>100</b><span data-t="pr_cur">جنيه</span></div>
+        <p class="per" data-t="pr_per">سعر الدعوة الواحدة</p>
+        <ul class="points">
+          <li data-t="pr1">تصميم على اسمكم وبياناتكم</li>
+          <li data-t="pr2">معاينة قبل التسليم</li>
+          <li data-t="pr3">عربي أو إنجليزي أو الاتنين</li>
+        </ul>
+      </div>
+      <div class="p-pay">
+        <h2 data-t="pr_title">التحويل الأول، وبعدها نبدأ التصميم</h2>
+        <p data-t="pr_lead">بعد ما تبعت بياناتك على واتساب، بتحوّل 100 جنيه وتبعتلي صورة التحويل. أول ما أتأكد من التحويل بابدأ شغل دعوتك.</p>
+        <div class="pay-box">
+          <div class="pay-row"><span data-t="pr_m">حوّل على المحفظة</span><b id="payNum" style="direction:ltr;font-family:var(--f-en-body);letter-spacing:.06em">01208614554</b><button class="btn btn-ghost" type="button" id="copyPay" style="padding:.35rem .9rem;font-size:.82rem" data-t="o_copy">انسخ الرقم</button></div>
+          <div class="pay-row"><span data-t="pr_a">المبلغ</span><b data-t="pr_av">100 جنيه للدعوة</b></div>
+        </div>
+        <a class="btn btn-gold" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="pr_btn">ابعت صورة التحويل</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" data-t="p_eyebrow">إزاي بنشتغل</span>
+        <h2 data-t="p_title">من الفكرة للدعوة في أربع خطوات</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3 data-t="p1">اختار التصميم</h3><p data-t="p1p">تصفح المعرض واختار رقم التصميم اللي عجبك، أو احكيلي فكرتك.</p></div>
+        <div class="step"><h3 data-t="p25">حوّل 100 جنيه</h3><p data-t="p25p">بتحوّل الأول على المحفظة وتصوّر التحويل.</p></div>
+        <div class="step"><h3 data-t="p2">ابعت بياناتك</h3><p data-t="p2p">الأسماء والتاريخ والمكان والنص، مع صورة التحويل على واتساب.</p></div>
+        <div class="step"><h3 data-t="p3">راجع المعاينة</h3><p data-t="p3p">هبعتلك التصميم تشوفه، وتقولي لو في أي تعديل.</p></div>
+        <div class="step"><h3 data-t="p4">استلم دعوتك</h3><p data-t="p4p">بتستلمها جاهزة للإرسال أو الطباعة بالصيغة اللي اتفقنا عليها.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap order">
+      <div class="side">
+        <span class="eyebrow" data-t="o_eyebrow">اطلب دعوتك</span>
+        <h2 data-t="o_title">املا البيانات وكمّل على واتساب</h2>
+        <p data-t="o_lead">اكتب تفاصيل مناسبتك وهتتحول لرسالة جاهزة على واتساب، سواء من الموبايل أو من واتساب ويب. سعر الدعوة 100 جنيه، والتحويل بيتم الأول قبل بدء التصميم.</p>
+        <div class="wa-box">
+          <span class="eyebrow" style="font-size:.72rem" data-t="o_direct">أو كلمني مباشرة</span>
+          <div class="num" id="waNum">01208614554</div>
+          <div class="row">
+            <a class="btn btn-gold" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="o_open">افتح واتساب</span></a>
+            <button class="btn btn-ghost" type="button" id="copyNum" data-t="o_copy">انسخ الرقم</button>
+          </div>
+        </div>
+      </div>
+      <form class="f" id="orderForm" novalidate>
+        <div class="fld"><label for="fKind" data-t="fl_kind">نوع المناسبة</label>
+          <select id="fKind"><option value="دعوة زفاف" data-t="k1">دعوة زفاف</option><option value="دعوة خطوبة" data-t="k2">دعوة خطوبة</option><option value="Save the Date" data-t="k3">Save the Date</option><option value="تصميم من الصفر" data-t="k4">تصميم من الصفر</option></select></div>
+        <div class="fld"><label for="fLang" data-t="fl_lang">لغة الدعوة</label>
+          <select id="fLang"><option value="عربي" data-t="l1">عربي</option><option value="إنجليزي" data-t="l2">إنجليزي</option><option value="عربي وإنجليزي" data-t="l3">عربي وإنجليزي</option></select></div>
+        <div class="fld"><label for="fN1" data-t="fl_n1">اسم العريس</label><input id="fN1" autocomplete="off" data-tp="ph_n1" placeholder="مثال: أحمد"></div>
+        <div class="fld"><label for="fN2" data-t="fl_n2">اسم العروسة</label><input id="fN2" autocomplete="off" data-tp="ph_n2" placeholder="مثال: سارة"></div>
+        <div class="fld"><label for="fDate" data-t="fl_date">تاريخ المناسبة</label><input id="fDate" autocomplete="off" data-tp="ph_date" placeholder="مثال: الجمعة 12 ديسمبر"></div>
+        <div class="fld"><label for="fPlace" data-t="fl_place">المكان</label><input id="fPlace" autocomplete="off" data-tp="ph_place" placeholder="اسم القاعة أو المدينة"></div>
+        <div class="fld"><label for="fDesign" data-t="fl_design">رقم التصميم من المعرض</label><input id="fDesign" inputmode="numeric" autocomplete="off" data-tp="ph_design" placeholder="مثال: 12 (أو سيبه فاضي)"></div>
+        <div class="fld"><label for="fName" data-t="fl_name">اسمك</label><input id="fName" autocomplete="off" data-tp="ph_name" placeholder="اسمك للتواصل"></div>
+        <div class="fld full"><label for="fNote" data-t="fl_note">ملاحظات أو نص الدعوة</label><textarea id="fNote" data-tp="ph_note" placeholder="الألوان المفضلة، آية أو عبارة معينة، أي تفصيلة"></textarea></div>
+        <label class="chk" for="fPaid"><input type="checkbox" id="fPaid"><span data-t="fl_paid">حوّلت 100 جنيه على 01208614554 وهبعت صورة التحويل على واتساب</span></label>
+        <div class="submit">
+          <a class="btn btn-gold" id="sendWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="o_send">ابعت الطلب على واتساب</span></a>
+          <div class="hint" id="hint" role="status"></div>
+          <div class="sendnote" data-t="o_note">الرسالة بتتفتح جاهزة في واتساب، وانت اللي بتدوس إرسال. بعدها ابعتلك بيانات التحويل.</div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow" data-t="q_eyebrow">أسئلة شائعة</span><h2 data-t="q_title">قبل ما تسأل</h2></div>
+      <div class="faq">
+        <details><summary data-t="q1">أطلب إزاي؟</summary><p data-t="q1a">اختار تصميم من المعرض واكتب بياناتك في فورم الطلب، أو كلمني على واتساب واحكيلي فكرتك.</p></details>
+        <details><summary data-t="q2">ينفع أغيّر في تصميم من المعرض؟</summary><p data-t="q2a">أكيد. الأسماء والتواريخ والنصوص بتتكتب على بياناتك، وأي تغيير تاني نتفق عليه حسب التصميم.</p></details>
+        <details><summary data-t="q3">السعر كام؟</summary><p data-t="q3a">السعر بيختلف حسب التصميم واللغة وعدد التعديلات. ابعتلي طلبك على واتساب وهرد عليك بالسعر.</p></details>
+        <details><summary data-t="q4">بتستلم الدعوة بأي صيغة؟</summary><p data-t="q4a">اتفق معايا على الصيغة والمقاس اللي محتاجه، سواء للإرسال أونلاين أو للطباعة.</p></details>
+        <details><summary data-t="q5">أقدر أطلب تصميم من الصفر؟</summary><p data-t="q5a">أيوه. قولي الألوان والستايل اللي في بالك وأنا أبدأ منها.</p></details>
+        <details><summary data-t="q6">المدة اللي بتاخدها كام؟</summary><p data-t="q6a">بتتحدد حسب تفاصيل الطلب. لو ميعاد المناسبة قريب، قولي من أول رسالة.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="logo-card"><img src="assets/logo.jpg" alt="W_invitation_design" loading="lazy"></div>
+        <p data-t="ft_p">تصميم دعوات زفاف وخطوبة بلمسة فنية. Mohamed Essam.</p>
+      </div>
+      <div>
+        <h4 data-t="ft_nav">الموقع</h4>
+        <ul><li><a href="#services" data-t="n_services">خدماتي</a></li><li><a href="#gallery" data-t="n_gallery">معرض التصاميم</a></li><li><a href="#about" data-t="n_about">عني</a></li><li><a href="#price" data-t="n_price">السعر</a></li><li><a href="#order" data-t="n_order">اطلب دعوتك</a></li></ul>
+      </div>
+      <div>
+        <h4 data-t="ft_contact">تواصل</h4>
+        <ul>
+          <li><a data-wa href="#" target="_blank" rel="noopener">WhatsApp: 01208614554</a></li>
+          <li><a href="https://www.tiktok.com/@w_invitation_design" target="_blank" rel="noopener">TikTok: @w_invitation_design</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> W_invitation_design</span><span data-t="ft_rights">كل الحقوق محفوظة</span></div>
+  </div>
+</footer>
+
+<a class="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="fab">اطلب على واتساب</span></a>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true">
+  <button class="lb-x" id="lbX" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbP" type="button" aria-label="Previous">‹</button>
+  <button class="lb-nav lb-next" id="lbN" type="button" aria-label="Next">›</button>
+  <div class="lb-img"><img id="lbImg" alt=""></div>
+  <div class="lb-bar">
+    <span class="meta" id="lbMeta"></span>
+    <a class="btn btn-gold" id="lbWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-wa"/></svg><span data-t="lb_wa">اطلب التصميم ده</span></a>
+    <button class="btn btn-ghost" id="lbForm" type="button" data-t="lb_form">كمّل في الفورم</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PHONE="201208614554";
+  var TT="https://www.tiktok.com/@w_invitation_design";
+  var N=58;
+  var T={
+    ar:{
+      n_services:"خدماتي",n_price:"السعر",install:"ثبّت التطبيق",f4:"سعر الدعوة الواحدة",n_gallery:"معرض التصاميم",n_about:"عني",n_process:"إزاي بنشتغل",n_order:"اطلب دعوتك",n_faq:"أسئلة شائعة",n_cta:"كلمني واتساب",
+      h_eyebrow:"دعوات زفاف وخطوبة",h_title1:"كل فرحة بتبدأ",h_title2:"بدعوة تستاهلها",
+      h_lead:"أصمم دعوات الزفاف والخطوبة بلمسة فنية على اسمكم وذوقكم، بخط عربي أنيق وورود وتفاصيل دهبية، وتوصلك جاهزة تتبعت لأحبابك.",
+      h_btn1:"شوف التصاميم",h_btn2:"اطلب على واتساب",f1:"سنين خبرة في التصميم",f2:"تصميم في المعرض",f3:"دعوات بالعربي والإنجليزي",
+      pr_eyebrow:"السعر",pr_cur:"جنيه",pr_per:"سعر الدعوة الواحدة",pr1:"تصميم على اسمكم وبياناتكم",pr2:"معاينة قبل التسليم",pr3:"عربي أو إنجليزي أو الاتنين",pr_title:"التحويل الأول، وبعدها نبدأ التصميم",pr_lead:"حوّل 100 جنيه على رقم المحفظة الأول، وبعدها ابعت بياناتك مع صورة التحويل على واتساب. أول ما أتأكد من التحويل بابدأ شغل دعوتك.",pr_m:"حوّل على المحفظة",pr_a:"المبلغ",pr_av:"100 جنيه للدعوة",pr_btn:"ابعت صورة التحويل",fl_paid:"حوّلت 100 جنيه على 01208614554 وهبعت صورة التحويل على واتساب",o_paid_hint:"علّم على خانة التحويل الأول. الشغل بيبدأ بعد تحويل 100 جنيه.",
+      s_eyebrow:"خدماتي",s_title:"تصميم بيتفصّل على حكايتكم",s_lead:"من أول Save the Date لحد دعوة الفرح، كل تفصيلة بتتكتب بإيدي على اسمكم ومناسبتكم.",
+      sv1:"دعوات الزفاف",sv1p:"دعوات بخط عربي أو إنجليزي، بين الكلاسيك الدهبي والمودرن والورود.",
+      sv2:"دعوات الخطوبة",sv2p:"تصاميم رقيقة بتعبّر عن فرحة البداية، بالأسماء والتاريخ والمكان.",
+      sv3:"Save the Date",sv3p:"بطاقة بتحجز الميعاد في قلوب المعازيم قبل الدعوة الرسمية.",
+      sv4:"تصميم من الصفر",sv4p:"عندك فكرة أو ألوان معينة؟ احكيلي وأنا أحوّلها لدعوة تشبهكم.",
+      g_eyebrow:"معرض التصاميم",g_title:"من شغلي",g_lead:"دي تصاميم من أعمالي. اضغط على أي تصميم تكبّره، وبعدها اطلبه بنفس الرقم على واتساب.",
+      g_note:"الأسماء والتواريخ في النماذج فاضية، وبتتكتب على بيانات العروسة والعريس.",
+      a_eyebrow:"عني",a_title:"أنا محمد عصام",
+      a_p1:"مصمم جرافيك بخبرة أكتر من 5 سنين، وتخصصي في دعوات الزفاف والخطوبة. بحب أحوّل التفاصيل الصغيرة، زي اسم أو لون أو وردة، لدعوة الناس تحتفظ بيها.",
+      a_p2:"كل دعوة بتتصمم على ذوق أصحاب الفرح، مش على قالب جاهز بيتكرر.",
+      a_l1:"خط عربي وإنجليزي مختار بعناية لكل دعوة",a_l2:"ألوان وزخارف على ذوقكم وعلى طابع الفرح",a_l3:"كلام مباشر معايا على واتساب من أول فكرة لحد التسليم",
+      a_btn:"كلمني دلوقتي",a_tt:"تابعني على تيك توك",
+      p_eyebrow:"إزاي بنشتغل",p_title:"من الفكرة للدعوة في خمس خطوات",
+      p1:"اختار التصميم",p1p:"تصفح المعرض واختار رقم التصميم اللي عجبك، أو احكيلي فكرتك.",
+      p2:"ابعت بياناتك",p2p:"الأسماء، التاريخ، المكان، والنص اللي عاوزه على الدعوة.",
+      p25:"حوّل 100 جنيه",p25p:"بتحوّل الأول على المحفظة وتصوّر التحويل.",p3:"راجع المعاينة",p3p:"هبعتلك التصميم تشوفه، وتقولي لو في أي تعديل.",
+      p4:"استلم دعوتك",p4p:"بتستلمها جاهزة للإرسال أو الطباعة بالصيغة اللي اتفقنا عليها.",
+      o_eyebrow:"اطلب دعوتك",o_title:"املا البيانات وكمّل على واتساب",
+      o_lead:"اكتب تفاصيل مناسبتك وهتتحول لرسالة جاهزة على واتساب، سواء من الموبايل أو من واتساب ويب. سعر الدعوة 100 جنيه، والتحويل بيتم الأول قبل بدء التصميم.",
+      o_direct:"أو كلمني مباشرة",o_open:"افتح واتساب",o_copy:"انسخ الرقم",o_copied:"اتنسخ",
+      fl_kind:"نوع المناسبة",fl_lang:"لغة الدعوة",fl_n1:"اسم العريس",fl_n2:"اسم العروسة",fl_date:"تاريخ المناسبة",fl_place:"المكان",fl_design:"رقم التصميم من المعرض",fl_name:"اسمك",fl_note:"ملاحظات أو نص الدعوة",
+      ph_n1:"مثال: أحمد",ph_n2:"مثال: سارة",ph_date:"مثال: الجمعة 12 ديسمبر",ph_place:"اسم القاعة أو المدينة",ph_design:"مثال: 12 (أو سيبه فاضي)",ph_name:"اسمك للتواصل",ph_note:"الألوان المفضلة، آية أو عبارة معينة، أي تفصيلة",
+      k1:"دعوة زفاف",k2:"دعوة خطوبة",k3:"Save the Date",k4:"تصميم من الصفر",l1:"عربي",l2:"إنجليزي",l3:"عربي وإنجليزي",
+      o_send:"ابعت الطلب على واتساب",o_note:"الرسالة بتتفتح جاهزة في واتساب، وانت اللي بتدوس إرسال. بعدها ابعتلك بيانات التحويل.",o_hint:"اكتب اسمك أو اسم العريس والعروسة الأول، عشان الرسالة تبقى واضحة.",
+      q_eyebrow:"أسئلة شائعة",q_title:"قبل ما تسأل",
+      q1:"أطلب إزاي؟",q1a:"اختار تصميم من المعرض واكتب بياناتك في فورم الطلب، أو كلمني على واتساب واحكيلي فكرتك.",
+      q2:"ينفع أغيّر في تصميم من المعرض؟",q2a:"أكيد. الأسماء والتواريخ والنصوص بتتكتب على بياناتك، وأي تغيير تاني نتفق عليه حسب التصميم.",
+      q3:"السعر كام وإزاي أدفع؟",q3a:"سعر الدعوة الواحدة 100 جنيه. بتحوّل المبلغ الأول وتبعتلي صورة التحويل، وبعدها أبدأ التصميم.",
+      q4:"بتستلم الدعوة بأي صيغة؟",q4a:"اتفق معايا على الصيغة والمقاس اللي محتاجه، سواء للإرسال أونلاين أو للطباعة.",
+      q5:"أقدر أطلب تصميم من الصفر؟",q5a:"أيوه. قولي الألوان والستايل اللي في بالك وأنا أبدأ منها.",
+      q6:"المدة اللي بتاخدها كام؟",q6a:"بتتحدد حسب تفاصيل الطلب. لو ميعاد المناسبة قريب، قولي من أول رسالة.",
+      ft_p:"تصميم دعوات زفاف وخطوبة بلمسة فنية. Mohamed Essam.",ft_nav:"الموقع",ft_contact:"تواصل",ft_rights:"كل الحقوق محفوظة",fab:"اطلب على واتساب",
+      lb_wa:"اطلب التصميم ده",lb_form:"كمّل في الفورم",design:"تصميم رقم",
+      all:"الكل",c_eng:"خطوبة و Save the Date",c_lux:"فخامة دهبي وداكن",c_cpl:"رسومات عروسين",c_flo:"ورود وألوان مائية",c_min:"مودرن وهادي",
+      mq:["دعوات زفاف","خطوبة","Save the Date","خط عربي","ورود","تفاصيل دهبية","على ذوقكم"]
+    },
+    en:{
+      n_services:"Services",n_price:"Price",install:"Install app",f4:"per invitation",n_gallery:"Gallery",n_about:"About",n_process:"How it works",n_order:"Order",n_faq:"FAQ",n_cta:"WhatsApp me",
+      h_eyebrow:"Wedding & engagement invitations",h_title1:"Every celebration begins with",h_title2:"an invitation worth keeping",
+      h_lead:"I design wedding and engagement invitations around your names and your taste, with elegant calligraphy, florals and gold detail, delivered ready to send.",
+      h_btn1:"View designs",h_btn2:"Order on WhatsApp",f1:"years in design",f2:"designs in the gallery",f3:"Arabic & English invitations",
+      pr_eyebrow:"Price",pr_cur:"EGP",pr_per:"per invitation",pr1:"Designed with your names and details",pr2:"Preview before delivery",pr3:"Arabic, English or both",pr_title:"Payment first, then we start designing",pr_lead:"Transfer 100 EGP to the wallet number first, then send your details with the transfer screenshot on WhatsApp. Once I confirm it, I start your invitation.",pr_m:"Transfer to wallet",pr_a:"Amount",pr_av:"100 EGP per invitation",pr_btn:"Send the transfer screenshot",fl_paid:"I transferred 100 EGP to 01208614554 and will send the screenshot on WhatsApp",o_paid_hint:"Tick the transfer box first. Work starts after the 100 EGP transfer.",
+      s_eyebrow:"Services",s_title:"Designed around your story",s_lead:"From the first Save the Date to the wedding invitation, every detail is set with your names and your occasion.",
+      sv1:"Wedding invitations",sv1p:"Arabic or English lettering, from gold classics to modern and floral.",
+      sv2:"Engagement invitations",sv2p:"Soft designs for the start of something, with names, date and venue.",
+      sv3:"Save the Date",sv3p:"A card that holds the date in your guests' calendars before the formal invitation.",
+      sv4:"Custom design",sv4p:"Have an idea or a palette in mind? Tell me and I'll shape it into your invitation.",
+      g_eyebrow:"Gallery",g_title:"My work",g_lead:"These are designs from my portfolio. Tap one to enlarge it, then order it by number on WhatsApp.",
+      g_note:"Names and dates are blank on the samples and are written with your details.",
+      a_eyebrow:"About",a_title:"I'm Mohamed Essam",
+      a_p1:"A graphic designer with over 5 years of experience, focused on wedding and engagement invitations. I turn small details, a name, a color, a flower, into an invitation people keep.",
+      a_p2:"Every invitation is designed around the couple, not a template that repeats.",
+      a_l1:"Arabic and English lettering chosen for each invitation",a_l2:"Colors and ornament to match your taste and the mood of the day",a_l3:"Direct chat with me on WhatsApp from first idea to delivery",
+      a_btn:"Message me now",a_tt:"Follow on TikTok",
+      p_eyebrow:"How it works",p_title:"From idea to invitation in five steps",
+      p1:"Pick a design",p1p:"Browse the gallery and note the design number, or tell me your idea.",
+      p2:"Send your details",p2p:"Names, date, venue and the wording you want.",
+      p25:"Transfer 100 EGP",p25p:"You transfer to the wallet first and screenshot the transfer.",p3:"Review the preview",p3p:"I send the design for you to see and ask for any change.",
+      p4:"Receive your invitation",p4p:"Delivered ready to send or print in the format we agree on.",
+      o_eyebrow:"Order",o_title:"Fill in the details and continue on WhatsApp",
+      o_lead:"Write your occasion details and they become a ready message on WhatsApp, on mobile or WhatsApp Web. Price is 100 EGP per invitation, paid by transfer before design starts.",
+      o_direct:"Or message me directly",o_open:"Open WhatsApp",o_copy:"Copy number",o_copied:"Copied",
+      fl_kind:"Occasion",fl_lang:"Invitation language",fl_n1:"Groom's name",fl_n2:"Bride's name",fl_date:"Date",fl_place:"Venue",fl_design:"Gallery design number",fl_name:"Your name",fl_note:"Notes or invitation wording",
+      ph_n1:"e.g. Ahmed",ph_n2:"e.g. Sara",ph_date:"e.g. Friday 12 December",ph_place:"Hall or city",ph_design:"e.g. 12 (or leave empty)",ph_name:"Your name for contact",ph_note:"Favorite colors, a verse or phrase, any detail",
+      k1:"Wedding invitation",k2:"Engagement invitation",k3:"Save the Date",k4:"Custom design",l1:"Arabic",l2:"English",l3:"Arabic & English",
+      o_send:"Send order on WhatsApp",o_note:"The message opens ready in WhatsApp and you press send. I then send you the transfer details.",o_hint:"Add your name or the couple's names first so the message is clear.",
+      q_eyebrow:"FAQ",q_title:"Before you ask",
+      q1:"How do I order?",q1a:"Pick a design from the gallery and fill in the order form, or message me on WhatsApp with your idea.",
+      q2:"Can I change a gallery design?",q2a:"Yes. Names, dates and wording are written with your details, and other changes we agree on per design.",
+      q3:"How much is it and how do I pay?",q3a:"One invitation costs 100 EGP. You transfer first and send me the screenshot, then I start designing.",
+      q4:"What format do I get?",q4a:"We agree on the format and size you need, for online sending or for print.",
+      q5:"Can I order a design from scratch?",q5a:"Yes. Tell me the colors and style you have in mind and I start there.",
+      q6:"How long does it take?",q6a:"It depends on the details. If your date is close, say so in your first message.",
+      ft_p:"Wedding and engagement invitation design. Mohamed Essam.",ft_nav:"Site",ft_contact:"Contact",ft_rights:"All rights reserved",fab:"Order on WhatsApp",
+      lb_wa:"Order this design",lb_form:"Continue in form",design:"Design no.",
+      all:"All",c_eng:"Engagement & Save the Date",c_lux:"Gold & dark luxe",c_cpl:"Illustrated couples",c_flo:"Florals & watercolor",c_min:"Modern & calm",
+      mq:["Wedding invitations","Engagement","Save the Date","Arabic calligraphy","Florals","Gold detail","Made for you"]
+    }
+  };
+  var lang="ar";
+  try{var s=localStorage.getItem("wid_lang");if(s==="en"||s==="ar")lang=s}catch(e){}
+
+  // categories
+  var eng=[1,6,8,21,27,29], lux=[2,3,4,23,44,45,51], cpl=[14,15,16,19,25,33,37,46,48,49],
+      min=[11,24,31,32,34,35,36,39,40,42,53,54,55,56,58];
+  function catOf(n){return eng.indexOf(n)>-1?"eng":lux.indexOf(n)>-1?"lux":cpl.indexOf(n)>-1?"cpl":min.indexOf(n)>-1?"min":"flo"}
+  var cats=["all","eng","lux","cpl","flo","min"], names={eng:"c_eng",lux:"c_lux",cpl:"c_cpl",flo:"c_flo",min:"c_min",all:"all"};
+  var cur="all", idx=[];
+  var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+  function pad(n){return n<10?"0"+n:""+n}
+  function waLink(text){return "https://wa.me/"+PHONE+(text?"?text="+encodeURIComponent(text):"")}
+  function t(k){return T[lang][k]}
+
+  // gallery
+  var grid=$("#grid");
+  for(var i=1;i<=N;i++){
+    var b=document.createElement("button");b.type="button";b.className="tile";b.dataset.n=i;b.dataset.c=catOf(i);
+    b.innerHTML='<img loading="lazy" src="assets/d'+pad(i)+'.jpg" alt="Invitation design '+pad(i)+'"><span class="no">'+pad(i)+'</span>';
+    grid.appendChild(b);
+  }
+  $("#countDesigns").textContent=N;
+  function renderFilters(){
+    var f=$("#filters");f.innerHTML="";
+    cats.forEach(function(c){
+      var n=c==="all"?N:$$(".tile").filter(function(x){return x.dataset.c===c}).length;
+      var b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("aria-pressed",c===cur);
+      b.innerHTML=t(names[c])+"<small>"+n+"</small>";
+      b.onclick=function(){cur=c;applyFilter();renderFilters()};
+      f.appendChild(b);
+    });
+  }
+  function applyFilter(){
+    $$(".tile").forEach(function(x){x.hidden=!(cur==="all"||x.dataset.c===cur)});
+  }
+
+  // lightbox
+  var lb=$("#lb"),pos=0;
+  function visible(){return $$(".tile").filter(function(x){return !x.hidden}).map(function(x){return +x.dataset.n})}
+  function openLb(n){
+    idx=visible();pos=idx.indexOf(n);if(pos<0){pos=0}
+    showLb();lb.hidden=false;document.body.style.overflow="hidden";$("#lbX").focus();
+  }
+  function showLb(){
+    var n=idx[pos];
+    $("#lbImg").src="assets/d"+pad(n)+".jpg";$("#lbImg").alt=t("design")+" "+pad(n);
+    $("#lbMeta").textContent=t("design")+" "+pad(n)+"  ·  "+(pos+1)+" / "+idx.length;
+    $("#lbWa").href=waLink((lang==="ar"?"أهلا، عاوز أطلب تصميم رقم ":"Hello, I'd like to order design no. ")+pad(n));
+  }
+  function closeLb(){lb.hidden=true;document.body.style.overflow=""}
+  function step(d){pos=(pos+d+idx.length)%idx.length;showLb()}
+  grid.addEventListener("click",function(e){var tl=e.target.closest(".tile");if(tl)openLb(+tl.dataset.n)});
+  $("#lbX").onclick=closeLb;$("#lbP").onclick=function(){step(document.documentElement.dir==="rtl"?1:-1)};$("#lbN").onclick=function(){step(document.documentElement.dir==="rtl"?-1:1)};
+  lb.addEventListener("click",function(e){if(e.target.classList.contains("lb-img")||e.target===lb)closeLb()});
+  document.addEventListener("keydown",function(e){
+    if(lb.hidden)return;
+    var rtl=document.documentElement.dir==="rtl";
+    if(e.key==="Escape")closeLb();
+    if(e.key==="ArrowRight")step(rtl?1:1*(rtl?-1:1));
+    if(e.key==="ArrowLeft")step(rtl?-1:-1);
+  });
+  var sx=null;
+  lb.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener("touchend",function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60)step(dx<0?1:-1);sx=null});
+  $("#lbForm").onclick=function(){$("#fDesign").value=pad(idx[pos]);closeLb();updateForm();$("#order").scrollIntoView()};
+
+  // order form
+  function msg(){
+    var g=function(id){return ($("#"+id).value||"").trim()};
+    var L=["أهلا، عاوز أطلب تصميم من W_invitation_design 🌿","","النوع: "+g("fKind"),"لغة الدعوة: "+g("fLang"),"السعر: 100 جنيه للدعوة","تم تحويل 100 جنيه على 01208614554 وهبعت صورة التحويل هنا"];
+    if(g("fN1"))L.push("اسم العريس: "+g("fN1"));
+    if(g("fN2"))L.push("اسم العروسة: "+g("fN2"));
+    if(g("fDate"))L.push("التاريخ: "+g("fDate"));
+    if(g("fPlace"))L.push("المكان: "+g("fPlace"));
+    if(g("fDesign"))L.push("رقم التصميم: "+g("fDesign"));
+    if(g("fNote"))L.push("ملاحظات: "+g("fNote"));
+    if(g("fName"))L.push("","الاسم: "+g("fName"));
+    return L.join("\n");
+  }
+  function updateForm(){$("#sendWa").href=waLink(msg())}
+  $$("#orderForm input,#orderForm select,#orderForm textarea").forEach(function(el){el.addEventListener("input",updateForm);el.addEventListener("change",updateForm)});
+  $("#sendWa").addEventListener("click",function(e){
+    var ok=$("#fName").value.trim()||$("#fN1").value.trim()||$("#fN2").value.trim();
+    if(!$("#fPaid").checked){e.preventDefault();$("#hint").textContent=t("o_paid_hint");$("#fPaid").focus();return}
+    if(!ok){e.preventDefault();$("#hint").textContent=t("o_hint");$("#fName").focus()}else{$("#hint").textContent=""}
+  });
+  $("#orderForm").addEventListener("submit",function(e){e.preventDefault()});
+  function bindCopy(btn,numId){$(btn).onclick=function(){
+    var b=this,txt="01208614554";
+    var done=function(){b.textContent=t("o_copied");setTimeout(function(){b.textContent=t("o_copy")},1600)};
+    try{navigator.clipboard.writeText(txt).then(done,function(){sel()})}catch(e){sel()}
+    function sel(){var r=document.createRange();r.selectNodeContents($(numId));var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  }}
+  bindCopy("#copyNum","#waNum");bindCopy("#copyPay","#payNum");
+
+  // wa links
+  $$("[data-wa]").forEach(function(a){a.href=waLink(a.closest("footer")||a.closest(".wa-box")?"":"أهلا، عاوز أستفسر عن تصميم دعوة")});
+
+  // marquee
+  function renderMq(){
+    var w=T[lang].mq,h="";
+    for(var r=0;r<4;r++)w.forEach(function(x){h+="<span>"+x+"</span><i>✦</i>"});
+    $("#mq").innerHTML=h;
+  }
+
+  // i18n
+  function applyLang(){
+    var d=document.documentElement;d.lang=lang;d.dir=lang==="ar"?"rtl":"ltr";
+    $$("[data-t]").forEach(function(el){var v=T[lang][el.dataset.t];if(v!=null)el.textContent=v});
+    $$("[data-tp]").forEach(function(el){var v=T[lang][el.dataset.tp];if(v!=null)el.placeholder=v});
+    $("#langBtn").textContent=lang==="ar"?"EN":"عربي";
+    $$(".tile img").forEach(function(im){});
+    renderFilters();renderMq();
+    if(!lb.hidden)showLb();
+  }
+  $("#langBtn").onclick=function(){lang=lang==="ar"?"en":"ar";try{localStorage.setItem("wid_lang",lang)}catch(e){}applyLang()};
+
+  // nav
+  $("#menuBtn").onclick=function(){var o=$("#links").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+  $$("#links a").forEach(function(a){a.onclick=function(){$("#links").classList.remove("open")}});
+
+  // hero tilt
+  var stage=$("#stage");
+  if(stage&&matchMedia("(hover:hover)").matches){
+    stage.parentElement.addEventListener("mousemove",function(e){
+      var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      stage.style.transform="rotateY("+(x*10)+"deg) rotateX("+(-y*8)+"deg)";
+    });
+    stage.parentElement.addEventListener("mouseleave",function(){stage.style.transform=""});
+    stage.style.transition="transform .4s ease";stage.style.transformStyle="preserve-3d";
+  }
+
+  var dp=null;
+  window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;$("#installBtn").hidden=false});
+  $("#installBtn").onclick=function(){if(!dp)return;dp.prompt();dp.userChoice.then(function(){dp=null;$("#installBtn").hidden=true})};
+  window.addEventListener("appinstalled",function(){$("#installBtn").hidden=true});
+
+  // content protection (deterrents; a browser cannot fully block screenshots)
+  (function(){
+    var ok=function(e){var t=e.target;return t&&t.closest&&t.closest("input,textarea,select,.num,#payNum,#waNum")};
+    document.addEventListener("contextmenu",function(e){if(!ok(e))e.preventDefault()});
+    document.addEventListener("dragstart",function(e){e.preventDefault()});
+    document.addEventListener("copy",function(e){if(!ok(e)){e.preventDefault()}});
+    document.addEventListener("selectstart",function(e){if(!ok(e))e.preventDefault()});
+    function clip(){try{navigator.clipboard.writeText(" ")}catch(e){}}
+    document.addEventListener("keydown",function(e){
+      var k=(e.key||"").toLowerCase();
+      if(k==="printscreen"||k==="meta"&&e.shiftKey){clip();document.body.classList.add("shield");setTimeout(function(){document.body.classList.remove("shield")},1500)}
+      if((e.ctrlKey||e.metaKey)&&(k==="s"||k==="p"||k==="u"))e.preventDefault();
+      if(k==="f12"||((e.ctrlKey||e.metaKey)&&e.shiftKey&&(k==="i"||k==="j"||k==="c")))e.preventDefault();
+    });
+    document.addEventListener("keyup",function(e){if((e.key||"")==="PrintScreen"){clip()}});
+    var sh=function(on){document.body.classList.toggle("shield",!!on)};
+    document.addEventListener("visibilitychange",function(){sh(document.hidden)});
+    window.addEventListener("blur",function(){sh(true)});
+    window.addEventListener("focus",function(){sh(false)});
+    window.addEventListener("pagehide",function(){sh(true)});
+    window.addEventListener("pageshow",function(){sh(false)});
+    ["pointerdown","touchstart","mousemove"].forEach(function(n){document.addEventListener(n,function(){if(!document.hidden)sh(false)},{passive:true})});
+  })();
+  $("#yr").textContent=new Date().getFullYear();
+  applyLang();updateForm();
+})();
+</script>
